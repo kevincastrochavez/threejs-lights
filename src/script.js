@@ -19,22 +19,21 @@ const scene = new THREE.Scene();
  * Lights
  */
 // Ambient light comes from all directions, so it's uniform
-// const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-// scene.add(ambientLight);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+scene.add(ambientLight);
 
 // Comes from the same direction, all rays parallel
-// const directionalLight = new THREE.DirectionalLight(0x00fffc, 0.3);
-// directionalLight.position.set(1, 0.25, 0);
-// scene.add(directionalLight);
+const directionalLight = new THREE.DirectionalLight(0x00fffc, 0.3);
+directionalLight.position.set(1, 0.25, 0);
+scene.add(directionalLight);
 
-// First color gets applied to the top, second one to the bottom
+// // First color gets applied to the top, second one to the bottom
 const hemisphereLight = new THREE.HemisphereLight(0xff0000, 0x0000ff);
 scene.add(hemisphereLight);
 
-const pointLight = new THREE.PointLight(0xffffff, 0.5);
-pointLight.position.x = 2;
-pointLight.position.y = 3;
-pointLight.position.z = 4;
+// Starts from a point a spreads from there in all directions. The furthest, it fades more
+const pointLight = new THREE.PointLight(0xff9000, 0.5, 10, 2);
+pointLight.position.set(1, -0.5, 1);
 scene.add(pointLight);
 
 /**
